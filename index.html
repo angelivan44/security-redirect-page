@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telegram Link</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+    }
+    #telegram-link {
+      padding: 15px 30px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      font-size: 1.5em;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, transform 0.3s;
+    }
+    #telegram-link:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <a id="telegram-link" href="#">Go to Telegram</a>
+
+  <script>
+    // Obtener parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const number = urlParams.get('number');
+    const uuid = urlParams.get('uuid');
+
+    // Construir la URL de Telegram
+    const telegramUrl = `https://t.me/SecurityAppBot?start=${number}-${uuid}`;
+
+    // Establecer el href del enlace
+    const linkElement = document.getElementById('telegram-link');
+    linkElement.href = telegramUrl;
+  </script>
+</body>
+</html>
