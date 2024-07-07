@@ -7,12 +7,14 @@
   <style>
     body {
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
       margin: 0;
       font-family: Arial, sans-serif;
       background-color: #f0f8ff;
+      text-align: center;
     }
     #telegram-link {
       padding: 15px 30px;
@@ -23,15 +25,22 @@
       border-radius: 5px;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       transition: background-color 0.3s, transform 0.3s;
+      margin-bottom: 20px;
     }
     #telegram-link:hover {
       background-color: #0056b3;
       transform: scale(1.05);
     }
+    #additional-text {
+      font-size: 1em;
+      color: #333;
+      word-break: break-all;
+    }
   </style>
 </head>
 <body>
-  <a id="telegram-link" href="#">Go to Telegram</a>
+  <a id="telegram-link" href="#" target="_blank">Go to Telegram</a>
+  <div id="additional-text">This link will take you to the Telegram bot.</div>
 
   <script>
     // Obtener parámetros de la URL
@@ -45,6 +54,10 @@
     // Establecer el href del enlace
     const linkElement = document.getElementById('telegram-link');
     linkElement.href = telegramUrl;
+
+    // Mostrar la URL generada en el texto adicional
+    const additionalTextElement = document.getElementById('additional-text');
+    additionalTextElement.textContent = `Generated URL: ${telegramUrl}`;
   </script>
 </body>
 </html>
